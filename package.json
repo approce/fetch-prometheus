@@ -1,11 +1,18 @@
 {
   "name": "fetch-prometheus",
-  "version": "1.0.3",
-  "description": "",
+  "version": "1.0.4",
+  "description": "Fetch module wrapper that submits request metrics to Prometheus",
+  "repository": "https://github.com/approce/fetch-prometheus.git",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "fetch",
+    "Fetch API",
+    "prometheus",
+    "prom-client"
+  ],
   "author": "Roman Zaiats",
   "license": "MIT",
   "dependencies": {
