@@ -9,6 +9,7 @@
   "author": "Roman Zaiats",
   "license": "ISC",
   "dependencies": {
+    "debug": "^4.1.0",
     "node-fetch": "^2.3.0",
     "prom-client": "^11.2.0"
   }
