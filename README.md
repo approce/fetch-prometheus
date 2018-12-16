@@ -9,14 +9,14 @@ npm i --save fetch-prometheus
 ## Example
 
 Basic example:
-```
+```js
 const fetch = require('fetch-prometheus')(); //will use default node-fetch module to fetch data
 
 fetch('https://api.ipify.org?format=json');
 ```
 
 Custom fetch module usage:
-```
+```js
 const fetchRetry = require('fetch-retry');
 const fetch      = require('fetch-prometheus')(fetchRetry); //will use custom 'fetch-retry' module to fetch Data.
 
@@ -24,7 +24,7 @@ fetch('https://api.ipify.org?format=json');
 ```
 
 Custom `publishURL` example:
-```
+```js
 fetch('https://api.ipify.org?format=json', {
   publishURL: 'get_ip_request' //instead of publishing 'https://api.ipify.org?format=json' to prometheus it will publish metrics for this request under 'get_ip_request' request name. It should improve readability of metrics. 
 });
@@ -53,7 +53,7 @@ This module only submits metrics to Prometheus by using [prom-client](https://gi
 
 Example of exposing `prom-client` metrics assuming you use `Express.js`:
 
-```
+```js
 const Prometheus = require('prom-client');
 const express = require('express');
 
@@ -65,7 +65,7 @@ app.get('prometheus-metrics', (req, res) => {
 
 Example of pushing metrics to `Prometheus` by using `PushGateway`:
 
-```
+```js
 const {Pushgateway} = require('prom-client');
 const gateway  = new Pushgateway('http://localhost:9091');
 

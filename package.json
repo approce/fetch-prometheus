@@ -1,6 +1,6 @@
 {
   "name": "fetch-prometheus",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Fetch module wrapper that submits request metrics to Prometheus",
   "repository": "https://github.com/approce/fetch-prometheus.git",
   "main": "src/index.js",
