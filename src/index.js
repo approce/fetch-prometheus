@@ -2,11 +2,12 @@ const debug                            = require('debug')('fetch-prometheus');
 const {requestCount, requestHistogram} = require('./metrics');
 const {generalizeStatusCode}           = require('./normalizer');
 
-const setup = (uri, opts) => {
+const setup = (uri, opts = {}) => {
+  const customFetch = opts.fetch;
   let fetch;
 
-  if (opts.fetch && typeof opts.fetch === 'function') {
-    fetch = opts.fetch;
+  if (customFetch && typeof customFetch === 'function') {
+    fetch = customFetch;
     debug('using custom fetch module passed in options');
   } else {
     fetch = require('node-fetch');
