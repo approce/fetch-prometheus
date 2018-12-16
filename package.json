@@ -11,7 +11,8 @@
     "fetch",
     "Fetch API",
     "prometheus",
-    "prom-client"
+    "prom-client",
+    "metrics"
   ],
   "author": "Roman Zaiats",
   "license": "MIT",
