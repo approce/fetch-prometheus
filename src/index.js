@@ -2,8 +2,7 @@ const debug                            = require('debug')('fetch-prometheus');
 const {requestCount, requestHistogram} = require('./metrics');
 const {generalizeStatusCode}           = require('./normalizer');
 
-const setup = (uri, opts = {}) => {
-  const customFetch = opts.fetch;
+const setup = customFetch => {
   let fetch;
 
   if (customFetch && typeof customFetch === 'function') {
@@ -14,10 +13,10 @@ const setup = (uri, opts = {}) => {
     debug('using default node-fetch module');
   }
 
-  return fetchPrometheusWrapper(fetch, uri, opts);
+  return fetchPrometheusWrapper(fetch);
 };
 
-const fetchPrometheusWrapper = async (fetch, url, opts = {}) => {
+const fetchPrometheusWrapper = fetch => async (url, opts = {}) => {
   const method     = opts.method ? opts.method.toUpperCase() : 'GET';
   const publishURL = opts.publishURL ? opts.publishURL : url;
 
